@@ -35,7 +35,7 @@
 ├── 03_API_and_Integrations/  # Контракты REST API, спецификации эндпоинтов, обработка Webhooks
 ├── 04_Message_Broker/        # Топология RabbitMQ, Transactional Outbox, схемы сообщений и DLQ
 ├── 05_Database/              # Физическая модель PostgreSQL: DDL-скрипты, статусные автоматы, индексы
-├── 06_UML_and_BPMN/          # Диаграммы бизнес-процессов и сетевых взаимодействий (PlantUML / Mermaid)
+├── 06_UML_and_BPMN/          # Диаграммы бизнес-процессов и сетевых взаимодействий (PlantUML / Drawio)
 ├── 07_Agile_Workflow/        # Jira User Stories с Acceptance Criteria (Given-When-Then) и декомпозицией
 └── assets/                   # Рендеры архитектурных схем, ERD и диаграмм последовательностей
 ```
