@@ -85,11 +85,11 @@
   "upload_expires_at": "2026-10-04T12:00:00Z",
   "uploads": {
     "wav": { 
-      "url": "[https://s3.ohbeat.com/temp-uploads](https://s3.ohbeat.com/temp-uploads)", 
+      "url": "https://s3.ohbeat.com/temp-uploads", 
       "fields": { "key": "raw/112233/master.wav", "policy": "...", "x-amz-signature": "..." } 
     },
     "cover": { 
-      "url": "[https://s3.ohbeat.com/temp-uploads](https://s3.ohbeat.com/temp-uploads)", 
+      "url": "https://s3.ohbeat.com/temp-uploads", 
       "fields": { "key": "raw/112233/cover.jpg", "policy": "...", "x-amz-signature": "..." } 
     }
   }
@@ -134,8 +134,8 @@
       "bpm": 90,
       "musical_key": "Am",
       "duration_sec": 184,
-      "cover_url": "[https://cdn.ohbeat.com/covers/112234_v1.jpg](https://cdn.ohbeat.com/covers/112234_v1.jpg)",
-      "preview_url": "[https://cdn.ohbeat.com/previews/112234_v1.mp3](https://cdn.ohbeat.com/previews/112234_v1.mp3)",
+      "cover_url": "https://cdn.ohbeat.com/covers/112234_v1.jpg",
+      "preview_url": "https://cdn.ohbeat.com/previews/112234_v1.mp3",
       "is_reserved": false,
       "licenses": [
         { "code": "basic", "price": 1500 },
@@ -212,7 +212,7 @@
 ```json
 { 
   "payment_id": "22e12f66-000f-5000-8000-18db351245c7", 
-  "confirmation_url": "[https://yoomoney.ru/checkout/payments/v2/contract?orderId=](https://yoomoney.ru/checkout/payments/v2/contract?orderId=)..." 
+  "confirmation_url": "https://yoomoney.ru/checkout/payments/v2/contract?orderId=..." 
 }
 ```
 
@@ -228,7 +228,7 @@
   Возвращает `{ "order_id": 889900, "status": "paid" }`. Жизненный цикл статусов: `pending`, `paid`, `expired`, `canceled` (см. [Модель данных PostgreSQL](../05_Database/Database_Schema.md)).
 
 * **Получение ссылок на скачивание (`GET /orders/{id}/downloads`):**  
-  Генерирует временные presigned-ссылки со сроком жизни 1 час для файлов купленной лицензии (согласно [FR-28](../01_Requirements/FR_NFR.md) и [типам лицензий](../01_Requirements/User_Stories.md#22-типы-лицензий)). Ссылки формируются «на лету» при каждом обращении.
+  Генерирует временные presigned-ссылки со сроком жизни 1 час для файлов купленной лицензии (согласно [FR-28](../01_Requirements/FR_NFR.md) и [типам лицензий](../01_Requirements/User_Stories.md)). Ссылки формируются «на лету» при каждом обращении.
 
 #### Пример ответа `200 OK`:
 ```json
@@ -239,10 +239,10 @@
       "beat_id": 112233,
       "license": "exclusive",
       "files": [
-        { "kind": "mp3", "url": "[https://s3.ohbeat.com/private-media/beats/112233/clean.mp3?X-Amz-Signature=](https://s3.ohbeat.com/private-media/beats/112233/clean.mp3?X-Amz-Signature=)..." },
-        { "kind": "wav", "url": "[https://s3.ohbeat.com/private-media/beats/112233/master.wav?X-Amz-Signature=](https://s3.ohbeat.com/private-media/beats/112233/master.wav?X-Amz-Signature=)..." },
-        { "kind": "stems", "url": "[https://s3.ohbeat.com/private-media/beats/112233/stems.zip?X-Amz-Signature=](https://s3.ohbeat.com/private-media/beats/112233/stems.zip?X-Amz-Signature=)..." },
-        { "kind": "contract", "url": "[https://s3.ohbeat.com/private-media/contracts/889900-1.pdf?X-Amz-Signature=](https://s3.ohbeat.com/private-media/contracts/889900-1.pdf?X-Amz-Signature=)..." }
+        { "kind": "mp3", "url": "https://s3.ohbeat.com/private-media/beats/112233/clean.mp3?X-Amz-Signature=..." },
+        { "kind": "wav", "url": "https://s3.ohbeat.com/private-media/beats/112233/master.wav?X-Amz-Signature=..." },
+        { "kind": "stems", "url": "https://s3.ohbeat.com/private-media/beats/112233/stems.zip?X-Amz-Signature=..." },
+        { "kind": "contract", "url": "https://s3.ohbeat.com/private-media/contracts/889900-1.pdf?X-Amz-Signature=..." }
       ]
     }
   ]

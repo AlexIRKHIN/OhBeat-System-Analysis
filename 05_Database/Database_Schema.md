@@ -86,16 +86,12 @@ WITH expired AS (
     UPDATE beats
     SET status = 'active', reserved_order_id = NULL, reserved_until = NULL
     WHERE status = 'reserved' AND reserved_until < now()
-    RETURNING id
+    RETURNING reserved_order_id
 )
 UPDATE orders o
 SET status = 'expired'
 WHERE o.status = 'pending'
-  AND EXISTS (
-      SELECT 1 FROM order_items oi
-      JOIN expired e ON e.id = oi.beat_id
-      WHERE oi.order_id = o.id
-  );
+  AND o.id IN (SELECT reserved_order_id FROM expired WHERE reserved_order_id IS NOT NULL);
 ```
 
 Задержка снятия до одной минуты допустима: она лишь чуть дольше держит бит в резерве и не создает двойных продаж, так как продажа проверяется в момент холдирования средств (FR-23).
